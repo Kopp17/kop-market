@@ -3,21 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>kop's Market2</title>
-
+<title>kop's Market - Votre boutique en ligne</title>
+<meta name="description" content="Achetez des chaussures, habits et ordinateurs sur kop's Market. Livraison rapide en Côte d'Ivoire.">
+<meta name="keywords" content="ecommerce, vente en ligne, Côte d'Ivoire, chaussures, habits, ordinateurs">
+<meta name="author" content="kop's Market">
 <link rel="icon" href="images/icone/icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <!-- HEADER -->
 <div class="header">
   <div class="logo">
-    <img src="images/icone/icon.png">
+    <img src="images/icone/icon.png" alt="Logo kop's Market">
     <span>kop's Market</span>
   </div>
 
@@ -29,40 +28,43 @@
 
 <!-- SEARCH -->
 <div class="search">
-  <input type="text" placeholder="🔍 Rechercher un produit..." onkeyup="searchProduct(this.value)">
+  <input type="text" id="searchInput" placeholder="🔍 Rechercher un produit... (ex: Nike, PC, T-shirt)" onkeyup="searchProduct(this.value)">
 </div>
 
 <!-- BODY -->
 <div class="container">
-
   <div class="sidebar">
-    <button onclick="filterCategory('all')">🏠 Tous</button>
+    <button onclick="filterCategory('all')" class="active">🏠 Tous les produits</button>
     <button onclick="filterCategory('chaussures')">👟 Chaussures</button>
     <button onclick="filterCategory('habits')">👕 Habits</button>
     <button onclick="filterCategory('ordinateurs')">💻 Ordinateurs</button>
   </div>
 
   <div class="products" id="products"></div>
-
 </div>
 
-<!-- CART -->
+<!-- CART MODAL -->
 <div class="modal" id="cartModal">
   <div class="modal-content">
     <span class="close" onclick="closeCart()">✖</span>
     <h3>🛒 Mon Panier</h3>
     <div id="cartItems"></div>
     <div class="total" id="total"></div>
-
-    <button class="order" onclick="orderWhatsApp()">
-      📲 Commander WhatsApp
-    </button>
+    
+    <div class="payment-options">
+      <button class="order-whatsapp" onclick="orderWhatsApp()">
+        📲 Commander via WhatsApp
+      </button>
+      <button class="order-momo" onclick="orderMobileMoney()">
+        💰 Payer par Mobile Money
+      </button>
+    </div>
   </div>
 </div>
 
+<!-- TOAST NOTIFICATION -->
 <div id="toast">Produit ajouté au panier ✅</div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
